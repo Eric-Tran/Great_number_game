@@ -1,0 +1,21 @@
+*{
+	padding: 0px;
+	margin: 0px;
+}
+
+#contents{
+	margin: 0px auto;
+	width: 500px;
+	height: 600px;
+	margin-top: 30px;
+	text-align: center;
+
+}
+
+h1, p, input{
+	margin: 10px;
+}
+
+.box{
+	margin: 0px auto;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Great Number Game</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+	<div id='contents'>
+		<h1>Welcome to the Great Number Game!</h1>
+		<p>I am thinking of a number between 1 and 100</p>
+		<p>Take a guess!</p>
+		<p> {{session['random_num']}} </p>
+
+		{% if session['status'] == 'notset' %}
+		
+		<form action='/process' method='post'>
+			<input type='text' name='guess'>
+			<br/>
+			<input type='submit' name='submit'>
+		</form>
+
+		{% elif session['status'] == 'low' %}
+
+		<div class='box' style='height: 200px; width: 200px; background-color: red'>
+			<p>Too Low</p>
+		</div>
+		<form action='/process' method='post'>
+			<input type='text' name='guess'>
+			<br/>
+			<input type='submit' name='submit'>
+		</form>
+
+		{% elif session['status'] == 'high' %}
+
+		<div class='box' style='height: 200px; width: 200px; background-color: red'>
+			<p>Too High</p>
+		</div>
+		<form action='/process' method='post'>
+			<input type='text' name='guess'>
+			<br/>
+			<input type='submit' name='submit'>
+		</form>
+
+		{% elif session['status'] == True %}
+
+		<div class='box' style='height: 200px; width: 200px; background-color: green'>
+			<p>Perfect!</p>
+		</div>
+		
+		<a href='/reset'><button> Play Again!</button></a>
+
+		{% endif %}
+
+	</div>
+</body>
+</html>
